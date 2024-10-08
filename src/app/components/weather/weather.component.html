@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personajes</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-8 mt-2">
+                <h3 class="text-white text-center">Destination Airport Weather.</h3>
+            </div>
+            <div class="col-sm-4 mt-2">
+                <div class="d-flex">
+                    <input id="boarding_Id" class="form-control me-sm-2" type="search"
+                        placeholder="Search Boarding Number" #boarding_Id/>
+                    <button class="btn btn-warning my-2 my-sm-0" data-placement="top" title="Click search"
+                        data-bs-toggle="modal" data-bs-target="#modalSearchBoarding"
+                        (click)="getFligthForBoardingId(boarding_Id.value)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-search mb-1" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3">
+            @for (item of dataList; track $index) {
+            <div class="card border-primary">
+                <div class="card-body">
+                    <span class="badge bg-primary rounded-pill">{{ item.destAirports.destination_iata_code }}</span>
+                    <h6 class="card-title mt-1">{{ item.destAirports.destination_name }}</h6>
+                    <img [src]="item.weather.imgUrl" alt="icon">
+                    <h6 class="card-title mt-1">Weather: {{ item.weather.description | titlecase }}</h6>
+                    <h6 class="card-title mt-1">Temp: {{ item.weather.temp | number: '1.0-0' }} °C</h6>
+                    <h6 class="card-title mt-1">Temp Max: {{ item.weather.temp_max | number: '1.0-0' }} °C</h6>
+                    <h6 class="card-title mt-1">Tem Min: {{ item.weather.temp_min | number: '1.0-0' }} °C</h6>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+    <div class="modal fade" id="modalSearchBoarding" tabindex="-1" aria-labelledby="modalSearchBoarding"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fs-5" id="modalSearchBoarding">Boarding number: </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-6 mt-2">
+                            <h6 class="text-white text-center">Origin Airport.</h6>
+                        </div>
+                        <div class="col-sm-6 mt-2">
+                            <h6 class="text-white text-center">Destination Airport</h6>
+                        </div>
+                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
