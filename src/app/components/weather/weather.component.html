@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personajes</title>
 </head>
 
 <body>
@@ -16,7 +15,7 @@
             <div class="col-sm-4 mt-2">
                 <div class="d-flex">
                     <input id="boarding_Id" class="form-control me-sm-2" type="search"
-                        placeholder="Search Boarding Number" #boarding_Id/>
+                        placeholder="Search Boarding Number" #boarding_Id />
                     <button class="btn btn-warning my-2 my-sm-0" data-placement="top" title="Click search"
                         data-bs-toggle="modal" data-bs-target="#modalSearchBoarding"
                         (click)="getFligthForBoardingId(boarding_Id.value)">
@@ -35,34 +34,72 @@
                 <div class="card-body">
                     <span class="badge bg-primary rounded-pill">{{ item.destAirports.destination_iata_code }}</span>
                     <h6 class="card-title mt-1">{{ item.destAirports.destination_name }}</h6>
-                    <img [src]="item.weather.imgUrl" alt="icon">
-                    <h6 class="card-title mt-1">Weather: {{ item.weather.description | titlecase }}</h6>
-                    <h6 class="card-title mt-1">Temp: {{ item.weather.temp | number: '1.0-0' }} °C</h6>
-                    <h6 class="card-title mt-1">Temp Max: {{ item.weather.temp_max | number: '1.0-0' }} °C</h6>
-                    <h6 class="card-title mt-1">Tem Min: {{ item.weather.temp_min | number: '1.0-0' }} °C</h6>
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <img [src]="item.weather.imgUrl" alt="icon">
+                            <h6 class="card-title mt-1">Weather: {{ item.weather.description | titlecase }}</h6>
+                        </div>
+                        <div class="col-sm-4 mt-2 text-end">
+                            <h6 class="card-title mt-1">Temp: {{ item.weather.temp | number: '1.0-0' }} °C</h6>
+                            <h6 class="card-title mt-1">Max: {{ item.weather.temp_max | number: '1.0-0' }} °C</h6>
+                            <h6 class="card-title mt-1">Min: {{ item.weather.temp_min | number: '1.0-0' }} °C</h6>
+                        </div>
+                    </div>
                 </div>
             </div>
             }
         </div>
     </div>
-    <div class="modal fade" id="modalSearchBoarding" tabindex="-1" aria-labelledby="modalSearchBoarding"
+    <div class="modal modal-lg fade" id="modalSearchBoarding" tabindex="-1" aria-labelledby="modalSearchBoarding"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title fs-5" id="modalSearchBoarding">Boarding number: </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-sm-6 mt-2">
-                            <h6 class="text-white text-center">Origin Airport.</h6>
+                @if (boardingData; as boarding) { 
+                    <div class="modal-header">
+                        <h5 class="modal-title fs-5" id="modalSearchBoarding">Boarding number: {{ boarding?.boardingid }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-6 mt-2">
+                                <h6 class="text-white text-center">Origin Airport.</h6>
+                                <div class="card-body">
+                                    <span class="badge bg-primary rounded-pill">{{ boarding?.origin_iata_code }}</span>
+                                    <h6 class="card-title mt-1">{{ boarding?.origin_name }}</h6>
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <img [src]="boarding?.weatherOrgn?.imgUrl" alt="icon">
+                                            <h6 class="card-title mt-1">Weather: {{ boarding?.weatherOrgn?.description | titlecase }}</h6>
+                                        </div>
+                                        <div class="col-sm-4 mt-2 text-end">
+                                            <h6 class="card-title mt-1">Temp: {{ boarding?.weatherOrgn?.temp | number: '1.0-0' }} °C</h6>
+                                            <h6 class="card-title mt-1">Max: {{ boarding?.weatherOrgn?.temp_max | number: '1.0-0' }} °C</h6>
+                                            <h6 class="card-title mt-1">Min: {{ boarding?.weatherOrgn?.temp_min | number: '1.0-0' }} °C</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mt-2">
+                                <h6 class="text-white text-center">Destination Airport</h6>
+                                <div class="card-body">
+                                    <span class="badge bg-primary rounded-pill">{{ boarding?.destination_iata_code }}</span>
+                                    <h6 class="card-title mt-1">{{ boarding?.destination_name }}</h6>
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <img [src]="boarding?.weatherDest?.imgUrl" alt="icon">
+                                            <h6 class="card-title mt-1">Weather: {{ boarding?.weatherDest?.description | titlecase }}</h6>
+                                        </div>
+                                        <div class="col-sm-4 mt-2 text-end">
+                                            <h6 class="card-title mt-1">Temp: {{ boarding?.weatherDest?.temp | number: '1.0-0' }} °C</h6>
+                                            <h6 class="card-title mt-1">Max: {{ boarding?.weatherDest?.temp_max | number: '1.0-0' }} °C</h6>
+                                            <h6 class="card-title mt-1">Min: {{ boarding?.weatherDest?.temp_min | number: '1.0-0' }} °C</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-sm-6 mt-2">
-                            <h6 class="text-white text-center">Destination Airport</h6>
-                        </div>
-                     </div>
-                </div>
+                    </div>
+                }
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
                 </div>
@@ -70,5 +107,4 @@
         </div>
     </div>
 </body>
-
 </html>

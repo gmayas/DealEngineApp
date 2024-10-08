@@ -16,7 +16,6 @@ export class DealEngineApiService {
 
   // 
   getFligthForBoardingId(boarding_Id: string) {
-    console.log('boarding_Id:', boarding_Id) 
      const options = {
       method: 'POST',
       headers: {
