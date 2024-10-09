@@ -77,10 +77,10 @@
                                         </div>
                                         <div class="col-sm-4 mt-2 text-end">
                                             <h6 class="card-title mt-1">Temp: {{ boarding?.weatherOrgn?.temp | number: '1.0-0' }} °C</h6>
-                                            @if (boarding?.weatherOrgn?.temp_max >= 20) { 
-                                                <h6 class=" text-danger mt-1">Max: rojo {{ boarding?.weatherOrgn?.temp_max | number: '1.0-0' }} °C</h6>
+                                            @if (boarding?.weatherOrgn?.temp_max >= 30) { 
+                                                <h6 class="card-title text-danger mt-1">Max: {{ boarding?.weatherOrgn?.temp_max | number: '1.0-0' }} °C</h6>
                                             } @else {
-                                                <h6 class="card-title mt-1">Max: no {{ boarding?.weatherOrgn?.temp_max | number: '1.0-0' }} °C</h6>
+                                                <h6 class="card-title mt-1">Max: {{ boarding?.weatherOrgn?.temp_max | number: '1.0-0' }} °C</h6>
                                             }
                                             <h6 class="card-title mt-1">Min: {{ boarding?.weatherOrgn?.temp_min | number: '1.0-0' }} °C</h6>
                                         </div>
@@ -99,7 +99,11 @@
                                         </div>
                                         <div class="col-sm-4 mt-2 text-end">
                                             <h6 class="card-title mt-1">Temp: {{ boarding?.weatherDest?.temp | number: '1.0-0' }} °C</h6>
-                                            <h6 class="card-title mt-1">Max: {{ boarding?.weatherDest?.temp_max | number: '1.0-0' }} °C</h6>
+                                            @if (boarding?.weatherDest?.temp_max >= 30) { 
+                                                <h6 class="card-title text-danger mt-1">Max: {{ boarding?.weatherDest?.temp_max | number: '1.0-0' }} °C</h6>
+                                            } @else {
+                                                <h6 class="card-title mt-1">Max: {{ boarding?.weatherDest?.temp_max | number: '1.0-0' }} °C</h6>
+                                            }
                                             <h6 class="card-title mt-1">Min: {{ boarding?.weatherDest?.temp_min | number: '1.0-0' }} °C</h6>
                                         </div>
                                     </div>
