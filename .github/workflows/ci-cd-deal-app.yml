@@ -20,8 +20,7 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - run: pm2 stop 1
-    - run: pm2 stop 2
+    - run: pm2 stop all
     - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
@@ -31,5 +30,4 @@ jobs:
     - run: npm i
     - run: npm run build --if-present
     #- run: npm test
-    - run: pm2 reload 1
-    - run: pm2 reload 2
+    - run: pm2 reload all
