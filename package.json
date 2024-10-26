@@ -10,7 +10,6 @@
     "test": "ng test"
   },
   "private": true,
-  "proxy": "http://174.138.59.120:4000/api/flightboard",
   "dependencies": {
     "@angular/animations": "^18.2.0",
     "@angular/common": "^18.2.0",
