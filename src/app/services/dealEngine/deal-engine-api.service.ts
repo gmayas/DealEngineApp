@@ -12,9 +12,6 @@ export class DealEngineApiService {
 
   // 
   getDestAirportsList() {
-    const options = {
-      referrerPolicy: "unsafe-url" 
-      };
     return fetch(`${this.DealApiUrl}/getDestAirportsList`)
   };
 
