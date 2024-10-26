@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class DealEngineApiService {
   
   //private DealApiUrl = 'http://localhost:4000/api/flightboard'
-  private DealApiUrl = 'http://174.138.59.120:4000/api/flightboard'
+  private DealApiUrl = '//174.138.59.120:4000/api/flightboard'
 
   constructor() { }
 
