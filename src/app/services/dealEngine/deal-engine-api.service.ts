@@ -12,6 +12,9 @@ export class DealEngineApiService {
 
   // 
   getDestAirportsList() {
+    const options = {
+      referrerPolicy: "unsafe-url" 
+      };
     return fetch(`${this.DealApiUrl}/getDestAirportsList`)
   };
 
@@ -23,6 +26,7 @@ export class DealEngineApiService {
       'Content-Type': 'application/json',
       },
       body: JSON.stringify({boarding_Id}),
+      
       };
     return fetch(`${this.DealApiUrl}/getBoardingId`, options)
   };
