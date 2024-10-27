@@ -20,6 +20,32 @@ Y verá la infracción detallada de su vuelo.
 
 ![](/imagenes/03.png)
 
+## CI/CD
+
+Del lado de integración continua y despliegue continuo tenemos su Workflow, Actions, Runner y servidor correspondiente Linux, y PM2 para la ejecución de las APP, como asi su dominio URL y certificado correspondiente.
+
+Workflow creado para la puesta en opresión a través de Actions y Runners, como asi su ejecución con PM2.
+
+![](/imagenes/04.png)
+
+Actions ejecutado después de commit and push a la rama main.
+
+![](/imagenes/05.png)
+
+Runner configurado hacia la máquina virtual Linux.
+
+![](/imagenes/06.png)
+
+PM2 monitoreando la ejecución de la aplicación en la máquina virtual Linux. 
+
+![](/imagenes/07.png)
+
+Despliegue en operación con URL y certificado.
+
+https://gmayasapp.site/
+
+![](/imagenes/08.png)
+
 Si deseas ver el código de su Api Rest, solo da click en la siguiente url:
 
 https://github.com/gmayas/DealEngineApi.git
