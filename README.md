@@ -22,7 +22,7 @@ Y verá la infracción detallada de su vuelo.
 
 ## CI/CD
 
-Del lado de integración continua y despliegue continuo tenemos su Workflow, Actions, Runner y servidor correspondiente Linux, y PM2 para la ejecución de las APP, como asi su dominio URL y certificado correspondiente.
+Del lado de integración continua y despliegue continuo tenemos su Workflow, Actions, Runner y servidor correspondiente Linux, y PM2 para la ejecución de la APP, como asi su dominio URL y certificado correspondiente.
 
 Workflow creado para la puesta en opresión a través de Actions y Runners, como asi su ejecución con PM2.
 
